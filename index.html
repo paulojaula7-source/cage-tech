@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cage Tech | Gestão e Suporte de TI</title>
-<meta name="description" content="Gestão e suporte de TI para pequenas e médias empresas com até 60 colaboradores. Microsoft 365, acessos, equipamentos e organização tecnológica.">
+<title>Cage Tech | Gestão, Suporte de TI e Inteligência Artificial</title>
+<meta name="description" content="Suporte de TI, gestão tecnológica e treinamento em Inteligência Artificial para pequenas e médias empresas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,901 +20,248 @@
     --primary: #3b82f6;
     --primary-light: #60a5fa;
     --cyan: #22d3ee;
-    --border: rgba(255,255,255,0.08);
+    --border: rgba(255,255,255,.09);
     --container: 1200px;
 }
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 100px;
-}
-
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:90px; }
 body {
-    font-family: "Inter", Arial, sans-serif;
-    background: var(--background);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
+    font-family:"Inter",Arial,sans-serif;
+    background:var(--background);
+    color:var(--text);
+    line-height:1.7;
+    overflow-x:hidden;
 }
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-button {
-    font-family: inherit;
-}
-
-.container {
-    width: min(90%, var(--container));
-    margin: 0 auto;
-}
-
-/* CABEÇALHO */
-
+a { color:inherit; text-decoration:none; }
+.container { width:min(90%,var(--container)); margin:auto; }
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 82px;
-    z-index: 1000;
-    background: rgba(9,15,28,0.78);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border);
+    position:fixed; top:0; left:0; width:100%; height:82px;
+    z-index:1000; background:rgba(9,15,28,.94);
+    backdrop-filter:blur(18px); border-bottom:1px solid var(--border);
 }
-
-.navbar {
-    height: 82px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-}
-
+.navbar { height:82px; display:flex; align-items:center; justify-content:space-between; }
+.logo { display:flex; align-items:center; gap:12px; }
 .logo-symbol {
-    width: 46px;
-    height: 46px;
-    border: 2px solid var(--primary);
-    border-radius: 11px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    color: var(--primary-light);
-    font-size: 25px;
-    font-weight: 800;
+    width:44px; height:44px; border:2px solid var(--primary);
+    border-radius:11px; display:grid; place-items:center;
+    color:var(--primary-light); font-size:25px; font-weight:800;
 }
-
-.logo-symbol::after {
-    content: "";
-    position: absolute;
-    width: 7px;
-    height: 7px;
-    background: var(--cyan);
-    border-radius: 50%;
-    right: -4px;
-    bottom: 5px;
-    box-shadow: 0 0 15px var(--cyan);
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.logo-text strong {
-    font-size: 19px;
-    letter-spacing: 1px;
-}
-
-.logo-text span {
-    margin-top: -2px;
-    color: #718096;
-    font-size: 8px;
-    font-weight: 600;
-    letter-spacing: 1.6px;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-nav a {
-    position: relative;
-    color: #cbd5e1;
-    font-size: 14px;
-    font-weight: 500;
-    transition: 0.25s;
-}
-
-nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: 0.25s;
-}
-
-nav a:hover {
-    color: white;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
+.logo-text { display:flex; flex-direction:column; }
+.logo-text strong { font-size:18px; letter-spacing:1px; }
+.logo-text span { font-size:8px; color:#718096; letter-spacing:1.4px; }
+nav { display:flex; align-items:center; gap:25px; }
+nav a { font-size:13px; color:#cbd5e1; transition:.2s; }
+nav a:hover { color:var(--cyan); }
 .menu-mobile {
-    display: none;
-    border: none;
-    background: transparent;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
+    display:none; color:white; background:none; border:0;
+    font-size:28px; cursor:pointer;
 }
-
-/* TELA INICIAL */
-
 .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-top: 82px;
-    overflow: hidden;
+    min-height:95vh; display:flex; align-items:center; text-align:center;
+    padding:130px 0 90px;
     background:
-        radial-gradient(circle at 50% 90%, rgba(34,211,238,0.09), transparent 33%),
-        radial-gradient(circle at 75% 50%, rgba(59,130,246,0.06), transparent 35%),
-        linear-gradient(135deg, #080e1a 0%, #10192c 100%);
+      radial-gradient(circle at 50% 85%,rgba(34,211,238,.12),transparent 35%),
+      radial-gradient(circle at 80% 40%,rgba(59,130,246,.10),transparent 35%),
+      linear-gradient(135deg,#080e1a,#10192c);
 }
-
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    opacity: 0.25;
-    background-image: repeating-linear-gradient(
-        135deg,
-        transparent 0px,
-        transparent 49px,
-        rgba(96,165,250,0.17) 50px,
-        transparent 51px
-    );
-    pointer-events: none;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    width: 700px;
-    height: 350px;
-    left: 50%;
-    bottom: -270px;
-    transform: translateX(-50%);
-    background: var(--cyan);
-    opacity: 0.09;
-    filter: blur(120px);
-    border-radius: 50%;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 5;
-    width: 100%;
-    text-align: center;
-    padding: 100px 0 80px;
-}
-
 .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    padding: 8px 13px;
-    border: 1px solid rgba(96,165,250,0.22);
-    background: rgba(59,130,246,0.06);
-    border-radius: 30px;
-    color: var(--primary-light);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
+    display:inline-block; padding:8px 14px; border-radius:30px;
+    border:1px solid rgba(96,165,250,.3); color:var(--primary-light);
+    background:rgba(59,130,246,.08); font-size:10px;
+    font-weight:700; letter-spacing:1.5px;
 }
-
-.hero-tag::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    background: var(--cyan);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--cyan);
-}
-
 .hero h1 {
-    max-width: 1000px;
-    margin: 28px auto 0;
-    font-size: clamp(52px, 7vw, 94px);
-    line-height: 1.03;
-    letter-spacing: -5px;
-    font-weight: 800;
+    max-width:1000px; margin:28px auto 0;
+    font-size:clamp(42px,7vw,82px); line-height:1.08; letter-spacing:-3px;
 }
-
-.hero h1 .highlight {
-    display: block;
-    background: linear-gradient(90deg, var(--primary-light), var(--cyan));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.highlight {
+    display:block; color:var(--cyan);
+    background:linear-gradient(90deg,var(--primary-light),var(--cyan));
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
 }
-
 .hero-description {
-    max-width: 680px;
-    margin: 30px auto 0;
-    color: var(--text-secondary);
-    font-size: 18px;
-    line-height: 1.8;
+    max-width:720px; margin:25px auto 0;
+    color:var(--text-secondary); font-size:17px;
 }
-
 .hero-buttons {
-    margin-top: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
+    margin-top:32px; display:flex; justify-content:center;
+    flex-wrap:wrap; gap:14px;
 }
-
 .button {
-    min-height: 54px;
-    padding: 0 25px;
-    border-radius: 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    font-size: 14px;
-    font-weight: 700;
-    transition: 0.25s;
-    cursor: pointer;
+    min-height:50px; padding:13px 22px; border-radius:8px;
+    display:inline-flex; justify-content:center; align-items:center;
+    gap:10px; font-size:13px; font-weight:700; transition:.25s;
+    cursor:pointer;
 }
-
 .button-primary {
-    background: var(--primary);
-    color: white;
-    box-shadow: 0 10px 35px rgba(59,130,246,0.20);
+    background:var(--primary); color:white;
+    box-shadow:0 10px 30px rgba(59,130,246,.2);
 }
-
-.button-primary:hover {
-    background: #4d8df7;
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(59,130,246,0.30);
-}
-
-.button-secondary {
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,0.025);
-    color: #dbe4f0;
-}
-
-.button-secondary:hover {
-    border-color: rgba(96,165,250,0.5);
-    background: rgba(59,130,246,0.06);
-}
-
+.button-primary:hover { background:#4d8df7; transform:translateY(-2px); }
+.button-secondary { border:1px solid var(--border); color:#dbe4f0; }
+.button-secondary:hover { border-color:var(--cyan); }
 .hero-services {
-    margin-top: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 16px;
-    color: #718096;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    margin-top:55px; display:flex; justify-content:center;
+    flex-wrap:wrap; gap:20px; color:#8795aa; font-size:11px;
 }
-
-.hero-services span:not(:last-child)::after {
-    content: "•";
-    margin-left: 16px;
-    color: var(--primary);
-}
-
-/* SEÇÕES */
-
-.section {
-    padding: 120px 0;
-}
-
+.section { padding:100px 0; }
+.section-alt { background:var(--background-secondary); }
+.section-header { max-width:780px; margin-bottom:45px; }
 .section-label {
-    color: var(--primary-light);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
+    color:var(--primary-light); font-size:10px;
+    font-weight:800; letter-spacing:2.5px;
 }
-
-.section-header {
-    max-width: 760px;
-    margin-bottom: 60px;
+.section-header h2,.section-title {
+    margin-top:12px; font-size:clamp(32px,4.5vw,52px);
+    line-height:1.15; letter-spacing:-1.8px;
 }
-
-.section-header h2,
-.checkup-text h2,
-.about-title h2,
-.contact h2 {
-    margin-top: 15px;
-    font-size: clamp(38px,5vw,60px);
-    line-height: 1.1;
-    letter-spacing: -2.5px;
-}
-
-.section-header h2 span,
-.checkup-text h2 span,
-.about-title h2 span,
-.contact h2 span {
-    color: var(--primary-light);
-}
-
-.section-header p {
-    margin-top: 24px;
-    color: var(--text-secondary);
-    font-size: 16px;
-    line-height: 1.8;
-}
-
-/* SERVIÇOS */
-
-.services {
-    background: var(--background-secondary);
-}
-
+.section-header p { margin-top:20px; color:var(--text-secondary); }
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 18px;
+    display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px;
 }
-
-.service-card {
-    position: relative;
-    min-height: 290px;
-    padding: 32px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    background:
-        linear-gradient(145deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01)),
-        var(--card);
-    overflow: hidden;
-    transition: 0.3s;
+.service-card,.training-card,.pricing-card {
+    padding:28px; border:1px solid var(--border);
+    border-radius:14px; background:var(--card);
 }
-
-.service-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--primary), transparent);
-    opacity: 0;
-    transition: 0.3s;
-}
-
-.service-card:hover {
-    transform: translateY(-7px);
-    border-color: rgba(96,165,250,0.30);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.20);
-}
-
-.service-card:hover::before {
-    opacity: 1;
-}
-
-.service-number {
-    color: var(--primary);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 2px;
-}
-
+.service-card { transition:.25s; }
+.service-card:hover { transform:translateY(-4px); border-color:rgba(96,165,250,.4); }
 .service-icon {
-    margin-top: 28px;
-    width: 42px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9px;
-    background: rgba(59,130,246,0.10);
-    border: 1px solid rgba(96,165,250,0.13);
-    color: var(--primary-light);
-    font-size: 19px;
+    width:42px; height:42px; display:grid; place-items:center;
+    border-radius:10px; background:rgba(59,130,246,.13);
+    color:var(--cyan); font-size:20px; margin-bottom:20px;
 }
-
-.service-card h3 {
-    margin-top: 20px;
-    font-size: 20px;
+.service-card h3,.training-card h3 { font-size:19px; line-height:1.4; }
+.service-card p,.training-card p {
+    margin-top:12px; color:var(--text-secondary); font-size:13px;
 }
-
-.service-card p {
-    margin-top: 12px;
-    color: var(--text-secondary);
-    font-size: 13px;
-    line-height: 1.8;
+.pricing-grid {
+    display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:22px; align-items:stretch;
 }
-
-.service-link {
-    display: inline-block;
-    margin-top: 20px;
-    color: var(--primary-light);
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.service-card.featured {
-    border-color: rgba(34,211,238,0.25);
-    background:
-        radial-gradient(circle at top right, rgba(34,211,238,0.08), transparent 40%),
-        linear-gradient(145deg, rgba(59,130,246,0.10), rgba(255,255,255,0.01)),
-        var(--card);
-}
-
-/* CHECK-UP */
-
-.checkup {
-    background: var(--background);
-}
-
-.checkup-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 90px;
-    align-items: center;
-}
-
-.checkup-text p {
-    max-width: 580px;
-    margin-top: 25px;
-    color: var(--text-secondary);
-    font-size: 15px;
-    line-height: 1.8;
-}
-
-.check-list {
-    margin: 35px 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-}
-
-.check-item {
-    color: #cbd5e1;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    gap: 9px;
-}
-
-.check-icon {
-    width: 19px;
-    height: 19px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(34,211,238,0.10);
-    color: var(--cyan);
-    font-size: 10px;
-}
-
-.diagnostic-panel {
-    position: relative;
-    padding: 30px;
-    border-radius: 15px;
-    background: #101a2c;
-    border: 1px solid var(--border);
-    box-shadow: 0 35px 80px rgba(0,0,0,0.28);
-}
-
-.diagnostic-panel::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: 15px;
-    padding: 1px;
-    background: linear-gradient(
-        135deg,
-        rgba(96,165,250,0.35),
-        transparent 35%,
-        transparent 70%,
-        rgba(34,211,238,0.20)
-    );
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-}
-
-.panel-header {
-    padding-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--border);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-.panel-status {
-    color: var(--cyan);
-}
-
-.panel-status::before {
-    content: "●";
-    margin-right: 6px;
-    font-size: 8px;
-}
-
-.diagnostic-list {
-    margin-top: 20px;
-}
-
-.diagnostic-item {
-    min-height: 67px;
-    margin-bottom: 10px;
-    padding: 15px 17px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.025);
-    border: 1px solid rgba(255,255,255,0.025);
-}
-
-.diagnostic-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.diagnostic-info small {
-    font-size: 8px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-}
-
-.diagnostic-info strong {
-    margin-top: 3px;
-    font-size: 13px;
-}
-
-.status-circle {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-}
-
-.critical small {
-    color: #fb7185;
-}
-
-.critical .status-circle {
-    background: #fb7185;
-    box-shadow: 0 0 10px rgba(251,113,133,0.5);
-}
-
-.warning small {
-    color: #fbbf24;
-}
-
-.warning .status-circle {
-    background: #fbbf24;
-    box-shadow: 0 0 10px rgba(251,191,36,0.4);
-}
-
-.success small {
-    color: #4ade80;
-}
-
-.success .status-circle {
-    background: #4ade80;
-    box-shadow: 0 0 10px rgba(74,222,128,0.4);
-}
-
-.diagnostic-footer {
-    margin-top: 18px;
-    color: #64748b;
-    font-size: 9px;
-}
-
-/* SOBRE */
-
-.about {
-    background: var(--background-secondary);
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
-    align-items: start;
-}
-
-.about-content {
-    color: var(--text-secondary);
-    font-size: 16px;
-    line-height: 1.9;
-}
-
-.about-content p + p {
-    margin-top: 20px;
-}
-
-.about-highlight {
-    margin-top: 30px;
-    padding-left: 20px;
-    border-left: 2px solid var(--primary);
-    color: #dce5f1;
-    font-weight: 500;
-}
-
-/* VALORES */
-
-.pricing {
-    background: var(--background);
-}
-
 .pricing-card {
-    max-width: 900px;
-    padding: 40px;
-    border-radius: 15px;
-    border: 1px solid rgba(96,165,250,0.25);
-    background:
-        radial-gradient(circle at top right, rgba(34,211,238,0.07), transparent 35%),
-        var(--card);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+    display:flex; flex-direction:column;
+    background:linear-gradient(145deg,rgba(59,130,246,.07),transparent),var(--card);
+    border-color:rgba(96,165,250,.25);
 }
-
-.pricing-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 30px;
+.pricing-card.featured { border-color:var(--cyan); }
+.pricing-badge {
+    display:inline-block; align-self:flex-start; margin-bottom:14px;
+    padding:5px 10px; border-radius:30px;
+    background:rgba(34,211,238,.12); color:var(--cyan);
+    font-size:10px; font-weight:800; text-transform:uppercase;
 }
-
-.pricing-top h3 {
-    margin-top: 12px;
-    font-size: 26px;
-}
-
-.pricing-description {
-    max-width: 540px;
-    margin-top: 12px;
-    color: var(--text-secondary);
-    font-size: 14px;
-    line-height: 1.8;
-}
-
+.pricing-card h3 { margin-top:12px; font-size:24px; }
+.pricing-description { margin-top:10px; color:var(--text-secondary); font-size:13px; }
 .pricing-price {
-    flex-shrink: 0;
-    color: var(--primary-light);
-    font-size: 48px;
-    font-weight: 800;
-    line-height: 1.2;
+    margin-top:22px; color:var(--primary-light);
+    font-size:clamp(28px,4vw,42px); font-weight:800; line-height:1.3;
 }
-
 .pricing-price span {
-    display: block;
-    margin-top: 7px;
-    color: var(--text-secondary);
-    font-size: 12px;
-    font-weight: 500;
-    text-align: right;
+    display:block; color:var(--text-secondary);
+    font-size:12px; font-weight:500;
 }
-
-.pricing-divider {
-    height: 1px;
-    margin: 30px 0;
-    background: var(--border);
+.pricing-divider { height:1px; background:var(--border); margin:22px 0; }
+.pricing-list,.training-list { list-style:none; display:grid; gap:12px; }
+.pricing-list li,.training-list li {
+    position:relative; padding-left:22px; color:#dbe4f0; font-size:13px;
 }
-
-.pricing-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px 25px;
-    list-style: none;
+.pricing-list li::before,.training-list li::before {
+    content:"✓"; position:absolute; left:0; color:var(--cyan); font-weight:800;
 }
-
-.pricing-list li {
-    position: relative;
-    padding-left: 27px;
-    color: #dbe4f0;
-    font-size: 14px;
-}
-
-.pricing-list li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--cyan);
-    font-weight: 800;
-}
-
 .pricing-note {
-    margin-top: 30px;
-    padding: 16px;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.025);
-    color: var(--text-secondary);
-    font-size: 12px;
-    line-height: 1.8;
+    margin-top:20px; color:var(--text-secondary); font-size:11px; line-height:1.8;
 }
-
-.pricing-cta {
-    margin-top: 25px;
+.pricing-cta { margin-top:auto; padding-top:25px; }
+.pricing-cta .button { width:100%; }
+.training-grid {
+    display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px;
 }
-
-/* CONTATO */
-
-.contact {
-    position: relative;
-    text-align: center;
-    background:
-        radial-gradient(circle at center, rgba(59,130,246,0.12), transparent 42%),
-        var(--background);
+.training-card { transition:.25s; }
+.training-card:hover { border-color:rgba(96,165,250,.4); transform:translateY(-3px); }
+.training-card.featured {
+    border-color:rgba(34,211,238,.5);
+    background:linear-gradient(145deg,rgba(34,211,238,.08),transparent),var(--card);
 }
-
-.contact-content {
-    max-width: 800px;
-    margin: auto;
+.training-icon {
+    width:46px; height:46px; display:grid; place-items:center;
+    margin-bottom:22px; border-radius:10px;
+    background:rgba(59,130,246,.12); color:var(--cyan); font-size:22px;
 }
-
-.contact p {
-    max-width: 580px;
-    margin: 25px auto 35px;
-    color: var(--text-secondary);
-    line-height: 1.8;
+.training-card .section-label { display:block; margin-bottom:10px; }
+.training-list { margin-top:22px; }
+.training-bottom {
+    margin-top:25px; padding:28px; border:1px solid var(--border);
+    border-radius:14px; background:rgba(255,255,255,.025);
+    display:flex; align-items:center; justify-content:space-between; gap:25px;
 }
-
-/* RODAPÉ */
-
-footer {
-    padding: 35px 0;
-    background: #070c16;
-    border-top: 1px solid var(--border);
+.training-bottom h3 { font-size:20px; }
+.training-bottom p { max-width:720px; margin-top:8px; color:var(--text-secondary); font-size:13px; }
+.checkup-grid,.about-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
 }
-
-.footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.checkup-text p,.about-content p {
+    margin-top:20px; color:var(--text-secondary); font-size:14px;
 }
-
-footer p {
-    color: #64748b;
-    font-size: 10px;
+.check-list {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:12px; margin:28px 0;
 }
-
-/* RESPONSIVO */
-
-@media (max-width: 900px) {
+.check-item { font-size:13px; color:#dbe4f0; }
+.check-item::before { content:"✓ "; color:var(--cyan); }
+.diagnostic-panel {
+    padding:25px; background:var(--card);
+    border:1px solid var(--border); border-radius:14px;
+}
+.panel-header {
+    display:flex; justify-content:space-between;
+    border-bottom:1px solid var(--border); padding-bottom:15px;
+    font-size:11px; font-weight:800; letter-spacing:1px;
+}
+.panel-status { color:var(--cyan); }
+.diagnostic-item {
+    margin-top:12px; padding:15px; border-radius:8px;
+    background:rgba(255,255,255,.03); font-size:13px;
+    display:flex; justify-content:space-between; gap:12px;
+}
+.diagnostic-item small { display:block; color:#fbbf24; font-size:9px; }
+.diagnostic-item.success small { color:#4ade80; }
+.diagnostic-footer { margin-top:16px; color:#718096; font-size:10px; }
+.about-highlight {
+    margin-top:25px; padding-left:18px; border-left:2px solid var(--primary);
+    color:#dbe4f0; font-weight:600;
+}
+.contact { text-align:center; background:radial-gradient(circle,rgba(59,130,246,.12),transparent 50%); }
+.contact-content { max-width:760px; margin:auto; }
+.contact-content p { margin:20px auto 28px; max-width:620px; color:var(--text-secondary); }
+footer { padding:30px 0; border-top:1px solid var(--border); }
+.footer-content { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+footer p { color:#718096; font-size:11px; }
+@media(max-width:950px) {
+    nav { gap:13px; }
+    nav a { font-size:11px; }
+    .services-grid,.training-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:700px) {
+    .menu-mobile { display:block; }
     nav {
-        display: none;
-        position: absolute;
-        top: 82px;
-        left: 0;
-        width: 100%;
-        padding: 30px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 25px;
-        background: #090f1c;
-        border-bottom: 1px solid var(--border);
+        display:none; position:absolute; top:82px; left:0; width:100%;
+        padding:25px; background:#090f1c; border-bottom:1px solid var(--border);
+        flex-direction:column; align-items:flex-start; gap:20px;
     }
-
-    nav.active {
-        display: flex;
+    nav.active { display:flex; }
+    .hero h1 { letter-spacing:-1.5px; }
+    .hero-description { font-size:15px; }
+    .section { padding:75px 0; }
+    .services-grid,.pricing-grid,.training-grid,.checkup-grid,.about-grid {
+        grid-template-columns:1fr; gap:18px;
     }
-
-    .menu-mobile {
-        display: block;
-    }
-
-    .hero h1 {
-        letter-spacing: -3px;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .checkup-grid,
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 55px;
-    }
+    .training-bottom,.footer-content { align-items:flex-start; flex-direction:column; }
+    .check-list { grid-template-columns:1fr 1fr; }
 }
-
-@media (max-width: 650px) {
-    .section {
-        padding: 85px 0;
-    }
-
-    .logo-text strong {
-        font-size: 16px;
-    }
-
-    .hero-content {
-        padding-top: 70px;
-    }
-
-    .hero h1 {
-        font-size: 47px;
-        letter-spacing: -2px;
-    }
-
-    .hero-description {
-        font-size: 15px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .button {
-        width: 100%;
-    }
-
-    .hero-services {
-        display: none;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .check-list {
-        grid-template-columns: 1fr;
-    }
-
-    .pricing-top {
-        flex-direction: column;
-    }
-
-    .pricing-price span {
-        text-align: left;
-    }
-
-    .pricing-list {
-        grid-template-columns: 1fr;
-    }
-
-    .pricing-card {
-        padding: 24px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 25px;
-        text-align: center;
-    }
+@media(max-width:420px) {
+    .check-list { grid-template-columns:1fr; }
+    .hero-buttons .button { width:100%; }
+    .service-card,.training-card,.pricing-card { padding:23px; }
 }
 </style>
 </head>
@@ -928,15 +276,12 @@ footer p {
                 <span>GESTÃO E SUPORTE DE TI</span>
             </div>
         </a>
-
-        <button class="menu-mobile" id="menuButton" aria-label="Abrir menu" aria-expanded="false">
-            ☰
-        </button>
-
+        <button class="menu-mobile" id="menuButton" aria-label="Abrir menu" aria-expanded="false">☰</button>
         <nav id="navigation">
             <a href="#inicio">Início</a>
             <a href="#servicos">Serviços</a>
-            <a href="#valores">Valores</a>
+            <a href="#valores">Planos</a>
+            <a href="#treinamentos">Treinamentos TI e IA</a>
             <a href="#checkup">Check-up de TI</a>
             <a href="#sobre">Sobre</a>
             <a href="#contato">Contato</a>
@@ -945,398 +290,343 @@ footer p {
 </header>
 
 <main>
-    <!-- INÍCIO -->
-    <section class="hero" id="inicio">
-        <div class="container hero-content">
-            <div class="hero-tag">
-                TECNOLOGIA PARA PEQUENAS E MÉDIAS EMPRESAS
-            </div>
-
-            <h1>
-                Tecnologia que organiza
-                <span class="highlight">seu negócio.</span>
-            </h1>
-
-            <p class="hero-description">
-                Gestão e suporte de TI para pequenas e médias empresas
-                com até 60 colaboradores que precisam manter usuários,
-                acessos, equipamentos e tecnologia sob controle.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#contato" class="button button-primary">
-                    Fale com a Cage Tech <span>→</span>
-                </a>
-
-                <a href="#servicos" class="button button-secondary">
-                    Conheça nossos serviços
-                </a>
-            </div>
-
-            <div class="hero-services">
-                <span>Microsoft 365</span>
-                <span>Gestão de Acessos</span>
-                <span>Equipamentos</span>
-                <span>Suporte de TI</span>
-                <span>Excel & Dados</span>
-            </div>
+<section class="hero" id="inicio">
+    <div class="container">
+        <span class="hero-tag">TECNOLOGIA PARA PEQUENAS E MÉDIAS EMPRESAS</span>
+        <h1>Tecnologia que organiza <span class="highlight">seu negócio.</span></h1>
+        <p class="hero-description">
+            Gestão e suporte de TI para empresas com até 60 colaboradores.
+            Organize usuários, acessos, equipamentos e processos e capacite sua equipe
+            para usar tecnologia e Inteligência Artificial com segurança.
+        </p>
+        <div class="hero-buttons">
+            <a href="#contato" class="button button-primary">Fale com a Cage Tech →</a>
+            <a href="#servicos" class="button button-secondary">Conheça nossos serviços</a>
         </div>
-    </section>
-
-    <!-- SERVIÇOS -->
-    <section class="section services" id="servicos">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">NOSSOS SERVIÇOS</span>
-
-                <h2>
-                    A TI da sua empresa
-                    <span>organizada.</span>
-                </h2>
-
-                <p>
-                    Soluções práticas para pequenas e médias empresas
-                    com até 60 colaboradores que precisam organizar
-                    sua tecnologia sem manter uma grande estrutura
-                    interna de TI.
-                </p>
-            </div>
-
-            <div class="services-grid">
-                <article class="service-card">
-                    <div class="service-number">01</div>
-                    <div class="service-icon">M</div>
-                    <h3>Microsoft 365</h3>
-                    <p>
-                        Administração de usuários, licenças,
-                        grupos, autenticação multifator e permissões.
-                    </p>
-                    <span class="service-link">Gestão Microsoft →</span>
-                </article>
-
-                <article class="service-card">
-                    <div class="service-number">02</div>
-                    <div class="service-icon">↳</div>
-                    <h3>Gestão de Acessos</h3>
-                    <p>
-                        Organização de acessos, onboarding,
-                        offboarding e revisão de contas corporativas.
-                    </p>
-                    <span class="service-link">Controle de acessos →</span>
-                </article>
-
-                <article class="service-card">
-                    <div class="service-number">03</div>
-                    <div class="service-icon">▣</div>
-                    <h3>Gestão de Equipamentos</h3>
-                    <p>
-                        Inventário de notebooks, responsáveis,
-                        documentação e controle do ciclo dos equipamentos.
-                    </p>
-                    <span class="service-link">Gestão de ativos →</span>
-                </article>
-
-                <article class="service-card">
-                    <div class="service-number">04</div>
-                    <div class="service-icon">⚙</div>
-                    <h3>Suporte de TI</h3>
-                    <p>
-                        Suporte remoto para Windows, Office,
-                        contas corporativas e problemas do dia a dia.
-                    </p>
-                    <span class="service-link">Suporte empresarial →</span>
-                </article>
-
-                <article class="service-card">
-                    <div class="service-number">05</div>
-                    <div class="service-icon">≡</div>
-                    <h3>Excel & Dados</h3>
-                    <p>
-                        Organização de planilhas, controles,
-                        relatórios e informações empresariais.
-                    </p>
-                    <span class="service-link">Organização de dados →</span>
-                </article>
-
-                <article class="service-card featured">
-                    <div class="service-number">06</div>
-                    <div class="service-icon">✓</div>
-                    <h3>Check-up de TI</h3>
-                    <p>
-                        Avaliação inicial da organização tecnológica
-                        da empresa e identificação dos principais
-                        pontos de atenção.
-                    </p>
-                    <a href="#checkup" class="service-link">
-                        Conhecer o Check-up →
-                    </a>
-                </article>
-            </div>
+        <div class="hero-services">
+            <span>Microsoft 365</span>
+            <span>Gestão de acessos</span>
+            <span>Suporte de TI</span>
+            <span>Treinamentos em IA</span>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- VALORES -->
-    <section class="section pricing" id="valores">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">VALORES TRANSPARENTES</span>
-
-                <h2>
-                    Suporte de TI
-                    <span>do seu jeito.</span>
-                </h2>
-
-                <p>
-                    Contrate suporte técnico quando precisar, sem mensalidade obrigatória.
-                    Você paga pelo tempo de atendimento utilizado.
-                </p>
-            </div>
-
-            <article class="pricing-card">
-                <div class="pricing-top">
-                    <div>
-                        <span class="section-label">ATENDIMENTO SOB DEMANDA</span>
-                        <h3>Plano Essencial</h3>
-
-                        <p class="pricing-description">
-                            Suporte remoto para pequenas empresas que precisam resolver
-                            problemas técnicos e manter a rotina funcionando.
-                        </p>
-                    </div>
-
-                    <div class="pricing-price">
-                        R$ 60
-                        <span>por hora de atendimento</span>
-                    </div>
-                </div>
-
-                <div class="pricing-divider"></div>
-
-                <ul class="pricing-list">
-                    <li>Suporte remoto para Windows e aplicativos</li>
-                    <li>Diagnóstico e resolução de problemas técnicos</li>
-                    <li>Configuração de e-mail corporativo</li>
-                    <li>Gestão básica de usuários e acessos</li>
-                    <li>Orientações sobre Microsoft 365 e Google Workspace</li>
-                    <li>Boas práticas básicas de segurança digital</li>
-                </ul>
-
-                <p class="pricing-note">
-                    Atendimento mediante agendamento e aprovação prévia do cliente.
-                    A cobrança considera o tempo efetivamente trabalhado. Serviços presenciais,
-                    licenças, peças e projetos especiais são orçados separadamente.
-                    Não há mensalidade obrigatória.
-                </p>
-
-                <div class="pricing-cta">
-                    <a href="#contato" class="button button-primary">
-                        Solicitar atendimento →
-                    </a>
-                </div>
+<section class="section section-alt" id="servicos">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">O QUE FAZEMOS</span>
+            <h2 class="section-title">Tecnologia a favor <span class="highlight">do seu negócio.</span></h2>
+            <p>Serviços práticos para melhorar a organização, a segurança e a produtividade da sua empresa.</p>
+        </div>
+        <div class="services-grid">
+            <article class="service-card">
+                <div class="service-icon">⚙</div>
+                <h3>Suporte técnico</h3>
+                <p>Diagnóstico e resolução de problemas em computadores, Windows, aplicativos e ferramentas de trabalho.</p>
+            </article>
+            <article class="service-card">
+                <div class="service-icon">◎</div>
+                <h3>Microsoft 365 e Google Workspace</h3>
+                <p>Apoio com e-mail corporativo, usuários, licenças, contas e configuração dos ambientes de trabalho.</p>
+            </article>
+            <article class="service-card">
+                <div class="service-icon">🔐</div>
+                <h3>Identidade e acessos</h3>
+                <p>Organização de usuários, permissões, autenticação multifator e acessos de colaboradores.</p>
+            </article>
+            <article class="service-card">
+                <div class="service-icon">▣</div>
+                <h3>Gestão de equipamentos</h3>
+                <p>Inventário de ativos, organização de equipamentos e apoio aos processos de entrada e saída de colaboradores.</p>
+            </article>
+            <article class="service-card">
+                <div class="service-icon">≡</div>
+                <h3>Excel e dados</h3>
+                <p>Organização de planilhas, controles, relatórios e informações para apoiar decisões do negócio.</p>
+            </article>
+            <article class="service-card">
+                <div class="service-icon">✓</div>
+                <h3>Check-up de TI</h3>
+                <p>Avaliação inicial para identificar riscos, falhas de organização e oportunidades de melhoria.</p>
             </article>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- CHECK-UP -->
-    <section class="section checkup" id="checkup">
-        <div class="container checkup-grid">
-            <div class="checkup-text">
-                <span class="section-label">CHECK-UP DE TI</span>
-
-                <h2>
-                    Você sabe como está a
-                    <span>TI da sua empresa?</span>
-                </h2>
-
-                <p>
-                    A Cage Tech realiza uma avaliação inicial
-                    para identificar problemas de organização,
-                    acessos, usuários, licenciamento e equipamentos.
-                </p>
-
-                <div class="check-list">
-                    <div class="check-item"><span class="check-icon">✓</span>Usuários e contas</div>
-                    <div class="check-item"><span class="check-icon">✓</span>Microsoft 365</div>
-                    <div class="check-item"><span class="check-icon">✓</span>MFA</div>
-                    <div class="check-item"><span class="check-icon">✓</span>Licenças</div>
-                    <div class="check-item"><span class="check-icon">✓</span>Equipamentos</div>
-                    <div class="check-item"><span class="check-icon">✓</span>Ex-colaboradores</div>
-                    <div class="check-item"><span class="check-icon">✓</span>Onboarding</div>
-                    <div class="check-item"><span class="check-icon">✓</span>Offboarding</div>
-                </div>
-
-                <a href="#contato" class="button button-primary">
-                    Solicitar avaliação →
-                </a>
-            </div>
-
-            <div class="diagnostic-panel">
-                <div class="panel-header">
-                    <span>DIAGNÓSTICO DE TI</span>
-                    <span class="panel-status">ANÁLISE</span>
-                </div>
-
-                <div class="diagnostic-list">
-                    <div class="diagnostic-item critical">
-                        <div class="diagnostic-info">
-                            <small>CRÍTICO</small>
-                            <strong>Contas e acessos</strong>
-                        </div>
-                        <div class="status-circle"></div>
-                    </div>
-
-                    <div class="diagnostic-item warning">
-                        <div class="diagnostic-info">
-                            <small>ATENÇÃO</small>
-                            <strong>MFA e autenticação</strong>
-                        </div>
-                        <div class="status-circle"></div>
-                    </div>
-
-                    <div class="diagnostic-item warning">
-                        <div class="diagnostic-info">
-                            <small>ATENÇÃO</small>
-                            <strong>Controle de equipamentos</strong>
-                        </div>
-                        <div class="status-circle"></div>
-                    </div>
-
-                    <div class="diagnostic-item success">
-                        <div class="diagnostic-info">
-                            <small>OK</small>
-                            <strong>Licenciamento</strong>
-                        </div>
-                        <div class="status-circle"></div>
-                    </div>
-                </div>
-
-                <div class="diagnostic-footer">
-                    * Exemplo ilustrativo de diagnóstico.
-                    Os resultados variam de acordo com cada ambiente.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOBRE -->
-    <section class="section about" id="sobre">
-        <div class="container about-grid">
-            <div class="about-title">
-                <span class="section-label">SOBRE A CAGE TECH</span>
-
-                <h2>
-                    Tecnologia sem
-                    <span>complicação.</span>
-                </h2>
-            </div>
-
-            <div class="about-content">
-                <p>
-                    Pequenas e médias empresas dependem cada vez mais
-                    de tecnologia, mas nem sempre possuem uma equipe
-                    dedicada para administrar usuários, acessos,
-                    equipamentos e serviços.
-                </p>
-
-                <p>
-                    A Cage Tech nasceu para ajudar empresas com até
-                    60 colaboradores a organizar sua operação de TI
-                    de maneira simples, prática e adequada à realidade
-                    de cada negócio.
-                </p>
-
-                <div class="about-highlight">
-                    Menos complexidade.
-                    Mais organização e controle para sua empresa.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section class="section contact" id="contato">
-        <div class="container contact-content">
-            <span class="section-label">FALE COM A CAGE TECH</span>
-
-            <h2>
-                Vamos organizar a
-                <span>TI da sua empresa?</span>
-            </h2>
-
+<section class="section section-alt" id="valores">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">PLANOS E VALORES</span>
+            <h2 class="section-title">Suporte de TI <span class="highlight">do seu jeito.</span></h2>
             <p>
-                Conte um pouco sobre sua empresa e o que você precisa.
-                Vamos entender o cenário e encontrar uma solução adequada
-                para o seu negócio.
+                Escolha entre atendimento avulso e suporte mensal.
+                Os planos mensais são referências iniciais e podem ser ajustados
+                conforme o número de usuários, equipamentos e serviços necessários.
             </p>
-
-            <a href="#" id="whatsappButton" class="button button-primary">
-                Falar pelo WhatsApp →
-            </a>
         </div>
-    </section>
+
+        <div class="pricing-grid">
+            <article class="pricing-card">
+                <span class="section-label">ATENDIMENTO PONTUAL</span>
+                <h3>Avulso por hora</h3>
+                <p class="pricing-description">Para resolver necessidades específicas sem compromisso mensal.</p>
+                <div class="pricing-price">R$ 60 <span>por hora de atendimento</span></div>
+                <div class="pricing-divider"></div>
+                <ul class="pricing-list">
+                    <li>Suporte remoto para Windows e aplicativos</li>
+                    <li>Diagnóstico e resolução de problemas</li>
+                    <li>Configuração de e-mail corporativo</li>
+                    <li>Orientações sobre usuários e acessos</li>
+                    <li>Microsoft 365 e Google Workspace</li>
+                    <li>Boas práticas básicas de segurança digital</li>
+                </ul>
+                <p class="pricing-note">Serviços presenciais, licenças, peças e projetos especiais são orçados separadamente.</p>
+                <div class="pricing-cta"><a href="#contato" class="button button-primary">Solicitar atendimento →</a></div>
+            </article>
+
+            <article class="pricing-card">
+                <span class="section-label">SUPORTE MENSAL</span>
+                <h3>Plano Essencial</h3>
+                <p class="pricing-description">Para equipes pequenas que precisam de suporte recorrente para manter a rotina funcionando.</p>
+                <div class="pricing-price">R$ 500–800 <span>por mês · até 5 computadores</span></div>
+                <div class="pricing-divider"></div>
+                <ul class="pricing-list">
+                    <li>Suporte remoto recorrente</li>
+                    <li>Ajuda com Windows e aplicativos de trabalho</li>
+                    <li>Configuração e suporte de e-mail corporativo</li>
+                    <li>Orientação básica sobre usuários e acessos</li>
+                    <li>Recomendações de organização e segurança</li>
+                </ul>
+                <p class="pricing-note">Limites de atendimento, horários e prazo de resposta serão definidos na proposta.</p>
+                <div class="pricing-cta"><a href="#contato" class="button button-primary">Solicitar proposta →</a></div>
+            </article>
+
+            <article class="pricing-card featured">
+                <span class="pricing-badge">Mais completo</span>
+                <span class="section-label">SUPORTE E ORGANIZAÇÃO</span>
+                <h3>Plano Profissional</h3>
+                <p class="pricing-description">Para empresas que precisam de mais controle sobre contas, permissões e ambiente digital.</p>
+                <div class="pricing-price">R$ 900–1.800 <span>por mês · até 10 computadores</span></div>
+                <div class="pricing-divider"></div>
+                <ul class="pricing-list">
+                    <li>Todos os itens do Plano Essencial</li>
+                    <li>Administração de usuários e permissões</li>
+                    <li>Suporte a Microsoft 365 e Google Workspace</li>
+                    <li>Inventário básico de equipamentos e acessos</li>
+                    <li>Relatório periódico e recomendações de melhoria</li>
+                </ul>
+                <p class="pricing-note">Indicado para equipes que precisam de maior padronização e acompanhamento.</p>
+                <div class="pricing-cta"><a href="#contato" class="button button-primary">Solicitar proposta →</a></div>
+            </article>
+
+            <article class="pricing-card">
+                <span class="section-label">GESTÃO RECORRENTE DE TI</span>
+                <h3>Plano Gerenciado</h3>
+                <p class="pricing-description">Acompanhamento contínuo para empresas que precisam de organização e previsibilidade.</p>
+                <div class="pricing-price">R$ 2.000–4.000 <span>por mês · até 20 computadores</span></div>
+                <div class="pricing-divider"></div>
+                <ul class="pricing-list">
+                    <li>Todos os itens do Plano Profissional</li>
+                    <li>Acompanhamento recorrente de chamados</li>
+                    <li>Controle de acessos e ativos de TI</li>
+                    <li>Acompanhamento de rotinas de backup e atualizações</li>
+                    <li>Documentação do ambiente e indicadores periódicos</li>
+                    <li>Plano de melhorias e recomendações de segurança</li>
+                </ul>
+                <p class="pricing-note">A cobertura, frequência e responsabilidades são formalizadas em proposta.</p>
+                <div class="pricing-cta"><a href="#contato" class="button button-primary">Solicitar proposta →</a></div>
+            </article>
+        </div>
+
+        <p class="pricing-note">
+            Valores de referência. O preço final depende do escopo aprovado, do número
+            de usuários e equipamentos e da complexidade do ambiente. Não há mensalidade
+            obrigatória no atendimento avulso.
+        </p>
+    </div>
+</section>
+
+<section class="section" id="treinamentos">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">CAPACITAÇÃO PARA EQUIPES</span>
+            <h2 class="section-title">Mais segurança e produtividade com <span class="highlight">TI e IA.</span></h2>
+            <p>
+                Treinamentos práticos para colaboradores usarem a tecnologia e a
+                Inteligência Artificial com responsabilidade, atenderem melhor os clientes
+                e ganharem agilidade nas tarefas do dia a dia.
+            </p>
+        </div>
+
+        <div class="training-grid">
+            <article class="training-card">
+                <div class="training-icon">🔐</div>
+                <span class="section-label">SEGURANÇA DIGITAL</span>
+                <h3>Uso seguro de TI e IA</h3>
+                <p>Capacite a equipe para reconhecer riscos e proteger informações da empresa e dos clientes.</p>
+                <ul class="training-list">
+                    <li>Phishing, golpes e engenharia social</li>
+                    <li>Senhas fortes e autenticação multifator</li>
+                    <li>Cuidados com dados confidenciais em ferramentas de IA</li>
+                    <li>Verificação de respostas geradas por IA</li>
+                    <li>Boas práticas de privacidade e uso responsável</li>
+                </ul>
+            </article>
+
+            <article class="training-card featured">
+                <div class="training-icon">⚡</div>
+                <span class="section-label">AGILIDADE OPERACIONAL</span>
+                <h3>IA para atendimento e suporte</h3>
+                <p>Use ferramentas de IA como apoio para reduzir tarefas repetitivas sem perder qualidade.</p>
+                <ul class="training-list">
+                    <li>Rascunhos de respostas claras e profissionais</li>
+                    <li>Resumo e organização de chamados</li>
+                    <li>Criação de procedimentos e perguntas frequentes</li>
+                    <li>Classificação inicial de solicitações</li>
+                    <li>Padronização da comunicação com clientes</li>
+                </ul>
+            </article>
+
+            <article class="training-card">
+                <div class="training-icon">↗</div>
+                <span class="section-label">VENDAS E PRODUTIVIDADE</span>
+                <h3>IA aplicada a vendas e processos</h3>
+                <p>Ajude os colaboradores a organizar informações e focar em atividades de maior valor.</p>
+                <ul class="training-list">
+                    <li>Preparação de propostas e mensagens comerciais</li>
+                    <li>Abordagem e acompanhamento de clientes</li>
+                    <li>Organização de reuniões, tarefas e resumos</li>
+                    <li>Apoio à análise de planilhas</li>
+                    <li>Automação de tarefas simples e repetitivas</li>
+                </ul>
+            </article>
+        </div>
+
+        <div class="training-bottom">
+            <div>
+                <h3>Treinamento adaptado à sua empresa</h3>
+                <p>
+                    Conteúdo prático com exemplos próximos da rotina da equipe.
+                    O treinamento pode ser remoto ou presencial, conforme disponibilidade.
+                    Formato, duração e investimento são definidos em proposta.
+                </p>
+            </div>
+            <a href="#contato" class="button button-primary">Solicitar treinamento →</a>
+        </div>
+
+        <p class="pricing-note">
+            A IA deve ser utilizada como ferramenta de apoio. Revise os resultados,
+            respeite as políticas internas e não insira senhas, dados pessoais ou
+            informações confidenciais em ferramentas não autorizadas pela empresa.
+        </p>
+    </div>
+</section>
+
+<section class="section section-alt" id="checkup">
+    <div class="container checkup-grid">
+        <div class="checkup-text">
+            <span class="section-label">CHECK-UP DE TI</span>
+            <h2 class="section-title">Você sabe como está a <span class="highlight">TI da sua empresa?</span></h2>
+            <p>
+                A Cage Tech realiza uma avaliação inicial para identificar problemas
+                de organização, acessos, usuários, licenciamento e equipamentos.
+            </p>
+            <div class="check-list">
+                <div class="check-item">Usuários e contas</div>
+                <div class="check-item">Microsoft 365</div>
+                <div class="check-item">MFA e autenticação</div>
+                <div class="check-item">Licenças</div>
+                <div class="check-item">Equipamentos</div>
+                <div class="check-item">Ex-colaboradores</div>
+                <div class="check-item">Onboarding</div>
+                <div class="check-item">Offboarding</div>
+            </div>
+            <a href="#contato" class="button button-primary">Solicitar avaliação →</a>
+        </div>
+        <div class="diagnostic-panel">
+            <div class="panel-header"><span>DIAGNÓSTICO DE TI</span><span class="panel-status">ANÁLISE</span></div>
+            <div class="diagnostic-item"><div><small>ATENÇÃO</small><strong>Contas e acessos</strong></div><span>●</span></div>
+            <div class="diagnostic-item"><div><small>ATENÇÃO</small><strong>MFA e autenticação</strong></div><span>●</span></div>
+            <div class="diagnostic-item"><div><small>ATENÇÃO</small><strong>Controle de equipamentos</strong></div><span>●</span></div>
+            <div class="diagnostic-item success"><div><small>EXEMPLO</small><strong>Licenciamento</strong></div><span>●</span></div>
+            <div class="diagnostic-footer">Exemplo ilustrativo. Os resultados variam de acordo com cada ambiente.</div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="sobre">
+    <div class="container about-grid">
+        <div>
+            <span class="section-label">SOBRE A CAGE TECH</span>
+            <h2 class="section-title">Tecnologia sem <span class="highlight">complicação.</span></h2>
+        </div>
+        <div class="about-content">
+            <p>
+                Pequenas e médias empresas dependem cada vez mais de tecnologia,
+                mas nem sempre possuem uma equipe dedicada para administrar usuários,
+                acessos, equipamentos e serviços.
+            </p>
+            <p>
+                A Cage Tech ajuda empresas com até 60 colaboradores a organizar
+                sua operação de TI de maneira simples, prática e adequada à realidade
+                de cada negócio.
+            </p>
+            <div class="about-highlight">Menos complexidade. Mais organização e controle para sua empresa.</div>
+        </div>
+    </div>
+</section>
+
+<section class="section contact" id="contato">
+    <div class="container contact-content">
+        <span class="section-label">FALE COM A CAGE TECH</span>
+        <h2 class="section-title">Vamos organizar a <span class="highlight">TI da sua empresa?</span></h2>
+        <p>
+            Conte um pouco sobre sua empresa e o que você precisa.
+            Vamos entender o cenário e encontrar uma solução adequada para seu negócio.
+        </p>
+        <a href="#" id="whatsappButton" class="button button-primary">Falar pelo WhatsApp →</a>
+    </div>
+</section>
 </main>
 
 <footer>
     <div class="container footer-content">
         <div class="logo">
             <div class="logo-symbol">C</div>
-
-            <div class="logo-text">
-                <strong>CAGE TECH</strong>
-                <span>GESTÃO E SUPORTE DE TI</span>
-            </div>
+            <div class="logo-text"><strong>CAGE TECH</strong><span>GESTÃO E SUPORTE DE TI</span></div>
         </div>
-
-        <p>
-            © <span id="year"></span> Cage Tech.
-            Todos os direitos reservados.
-        </p>
+        <p>© <span id="year"></span> Cage Tech. Todos os direitos reservados.</p>
     </div>
 </footer>
 
 <script>
-/* MENU MOBILE */
 const menuButton = document.getElementById("menuButton");
 const navigation = document.getElementById("navigation");
 
 menuButton.addEventListener("click", function () {
-    const aberto = navigation.classList.toggle("active");
-    menuButton.setAttribute("aria-expanded", String(aberto));
+    navigation.classList.toggle("active");
     menuButton.setAttribute(
-        "aria-label",
-        aberto ? "Fechar menu" : "Abrir menu"
+        "aria-expanded",
+        navigation.classList.contains("active") ? "true" : "false"
     );
 });
 
-/* FECHAR MENU AO CLICAR EM UM LINK */
-const links = document.querySelectorAll("nav a");
-
-links.forEach(function (link) {
+document.querySelectorAll("nav a").forEach(function (link) {
     link.addEventListener("click", function () {
         navigation.classList.remove("active");
         menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "Abrir menu");
     });
 });
 
-/* ANO AUTOMÁTICO */
 document.getElementById("year").textContent = new Date().getFullYear();
 
-/* WHATSAPP CAGE TECH */
-const whatsappButton = document.getElementById("whatsappButton");
-
-whatsappButton.addEventListener("click", function (event) {
+document.getElementById("whatsappButton").addEventListener("click", function (event) {
     event.preventDefault();
 
     const telefone = "5511947291168";
-    const mensagem =
-        "Olá! Encontrei a Cage Tech pelo site e gostaria de saber mais sobre os serviços e valores.";
-
-    const url =
-        "https://wa.me/" +
-        telefone +
-        "?text=" +
-        encodeURIComponent(mensagem);
+    const mensagem = "Olá! Encontrei a Cage Tech pelo site e gostaria de saber mais sobre os serviços, planos de suporte e treinamentos em TI e IA.";
+    const url = "https://wa.me/" + telefone + "?text=" + encodeURIComponent(mensagem);
 
     window.open(url, "_blank", "noopener,noreferrer");
 });
